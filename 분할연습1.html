@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 퀴즈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2C3E50;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h3 {
+            color: #0080ff; /* 네이비 블루 */
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #0080ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        .tip, .ans {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .tip {
+            opacity: 0.2;
+            color: gray;
+            background-color: #f0f0f0;
+        }
+
+        .tip:hover {
+            opacity: 1.0;
+        }
+
+        .ans {
+            opacity: 0.0;
+            color: blue;
+            background-color: #f0f0f0;
+        }
+
+        .ans:hover {
+            opacity: 1.0;
+        }
+
+        @keyframes correctAnswer {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .correct {
+            animation: correctAnswer 1s ease-in-out;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes incorrectAnswer {
+            0% { background-color: transparent; }
+            50% { background-color: rgba(255, 0, 0, 0.3); }
+            100% { background-color: transparent; }
+        }
+
+        .incorrect {
+            animation: incorrectAnswer 1s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 id="question-title">나의 MBTI는?</h3>
+        <form id="quiz-form">
+            <div id="options">
+                <input type="radio" name="mbti" value="ISTP">ISTP<br>
+                <input type="radio" name="mbti" value="ISTJ">ISTJ<br>
+                <input type="radio" name="mbti" value="ENFP">ENFP<br>
+                <input type="radio" name="mbti" value="ESFJ">ESFJ
+            </div>
+            <p></p>
+            <input type="button" value="제출" onclick="checkAnswer()">
+        </form>
+        [힌트] <div class="tip" id="hint">나는 내향적이고 계획적입니다.</div>
+        <p></p>
+        <div class="ans" id="answer">정답은 ISTJ</div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                title: '나의 MBTI는?',
+                options: ['ISTP', 'ISTJ', 'ENFP', 'ESFJ'],
+                answer: 'ISTJ',
+                hint: '나는 내향적이고 계획적입니다.'
+            },
+            {
+                title: '두 번째 질문?',
+                options: ['옵션1', '옵션2', '옵션3', '옵션4'],
+                answer: '옵션2',
+                hint: '힌트 예시입니다.'
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function loadQuestion(questionIndex) {
+            const question = questions[questionIndex];
+            const container = document.querySelector('.container');
+
+            container.classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('question-title').innerText = question.title;
+                const optionsContainer = document.getElementById('options');
+                optionsContainer.innerHTML = '';
+                question.options.forEach(option => {
+                    const optionElement = document.createElement('div');
+                    optionElement.innerHTML = `<input type="radio" name="mbti" value="${option}">${option}<br>`;
+                    optionsContainer.appendChild(optionElement);
+                });
+                document.getElementById('hint').innerText = question.hint;
+                document.getElementById('answer').style.opacity = 0;
+
+                container.classList.remove('fade-out');
+                container.classList.add('fade-in');
+            }, 500); // 500ms duration for fade-out
+        }
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="mbti"]:checked');
+            if (!selectedOption) {
+                alert('답을 선택하세요!');
+                return;
+            }
+
+            const answer = questions[currentQuestion].answer;
+            const answerElement = document.getElementById('answer');
+            if (selectedOption.value === answer) {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    answerElement.classList.remove('correct', 'incorrect');
+                    loadQuestion(currentQuestion);
+                } else {
+                    alert('모든 문제를 풀었습니다!');
+                }
+                answerElement.classList.add('correct');
+            } else {
+                answerElement.classList.remove('correct');
+                answerElement.classList.add('incorrect');
+            }
+        }
+
+        window.onload = function() {
+            loadQuestion(currentQuestion);
+        }
+    </script>
+</body>
+</html>

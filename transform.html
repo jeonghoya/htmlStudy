@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Style>
+        img:hover{
+            width: 700px;
+            height: 200px;
+            transform: rotate(360deg) ;
+            
+        }
+        img{
+            width: 200px;
+            height: 100px;
+            transition: width 1s;
+        }
+        #id1{
+            transition-timing-function: linear;
+        }
+        #id2{
+            transition-timing-function: ease;
+        }
+        #id3{
+            transition-timing-function: ease-in;
+        }
+        #id4{
+            transition-timing-function: ease-out;
+        }
+        #id5{
+            transition-timing-function: ease-in-out;
+        }
+        #id6{
+            transition-timing-function: cubic-bezier(0.1, 0.0, 0.1, 1.0);
+        }
+    </Style>
+</head>
+<body>
+    <img id="id1" src="가천대길쭉.png"><br>
+    <img id="id2" src="가천대길쭉.png"><br>
+    <img id="id3" src="가천대길쭉.png"><br> 
+    <img id="id4" src="가천대길쭉.png"><br>
+    <img id="id5" src="가천대길쭉.png"><br>
+    <img id="id6" src="가천대길쭉.png"><br>
+</body>
+</html>

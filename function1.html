@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+       /* var age1 = prompt('첫 번째 숫자 입력');
+        var age2 = prompt('두 번째 숫자 입력')    
+        var num1 = Number(age1);
+        var num2 = Number(age2);
+        function getsum(age1, age2) {
+            var sum = 0;
+            for (var i = age1; i <= age2; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        function getsum(age1, age2) {
+            var sum = 0;
+            while(age1 <= age2){
+                sum += age1;
+                age1++
+            }
+            return sum;
+        }
+        var sum = getsum(num1, num2);
+        document.write("첫 번째 숫자부터 두 번째 숫자까지의 합: <b>" + sum + "</b>"); */
+        /*var arr = [1, 2, 3, 4, '5'];
+    
+        function printarr() {
+            var i, sum = 0;
+            for (i = 0; i < arr.length; i++) {
+                if (typeof arr[i] === 'string') {
+                    arr[i] = Number(arr[i]);
+                }
+                sum += arr[i];
+            }
+            return sum;
+        }
+        var result = printarr();
+        document.write("배열 원소의 합: " + result + "<br>");*/
+        /*var city=new Array("seoul", "busan", "incheon");
+        function printarr(){
+            if(typeof city === 'object')
+                document.write("배열 객체 생성됐다. <p/>");
+            if(Array.isArray(city))
+                document.write("배열 객체 생성됐다. <p/>");
+        }
+        printarr();*/ 
+       /* var arr=[];
+        function insertarr(){
+            var i=0;
+            for(i=0; i<=99; i++){
+                arr[i] = i + 1;
+            }
+        }
+        function selectarr(){
+            var i;
+            for(i=0; i< arr.length; i++){
+                document.write(arr[i] + " ");
+            }
+            document.write("<a href='function1.html'>돌아가기</a>");
+        }
+        function addarr(){
+            var i;
+            var sum=0;
+            for(i=0; i< arr.length; i++){
+                sum+=arr[i];
+            }
+            document.write("<p/> 배열 데이터 덧셈의 결과: " + sum + "<p/>");
+            document.write("<a href='function1.html'>돌아가기</a>");
+        } */
+      /*  var score;
+        var num=[]
+        var i = 0;
+        while(1){
+            score=prompt('성적 입력');
+            if(Number(score) == -1)
+                break;
+            num[i]= Number(score);
+            i++;
+        }
+        function getavg(){
+            var sum=0;
+            var i=0;
+            var avg;
+            for(i=0; i<num.length; i++){
+                sum += num[i];
+            }
+            avg = sum/(num.length);
+            document.write("성적 합: " + sum + "<br>" +"평균: " + avg + "<p/>");
+        }
+        getavg();*/
+       /* var name;
+        var scoree;
+        var scorek;
+        var scorem;
+        var num=[]
+        var i = 0;
+        
+        name=prompt('이름 입력');
+        scorek=prompt('국어 성적 입력');
+        scoree=prompt('영어 성적 입력');
+        scorem=prompt('수학 성적 입력');
+       
+        function getavg(){
+            var sum=0;
+            var avg;
+            sum = Number(scorek) + Number(scoree) + Number(scorem);
+            avg = sum / 3;
+            
+            document.write("이름:" + name + "<br>" + "평균: " + avg + "<p/>");
+        }
+        getavg();/*파라미터 안 넘기는 경우*/
+        
+       /* var num1;
+        var num2;
+
+        function getsum(){
+            while(1){
+                var num1 = Number(prompt('첫 번째 숫자'));
+                var num2 = Number(prompt('두 번째 숫자'));
+                if((num1 < 0) || (num2 < 0))
+                    break;
+                if(num1 > num2){
+                    document.write("두 번째 숫자가 더 커야합니다.");
+                    continue;
+                }
+                for(var i = num1; num1 >= num2; i++){
+                if(i % 2 == 0){
+                    sum += i;
+                    }
+                }   
+            }
+            document.write("숫자 합: " + sum + "<p/>");
+        }
+        getsum(); */ 
+        var com = [];
+        var sum=i=0;
+        function getsum(){
+            while(1){
+                com[i] = Number(prompt('숫자 입력'));
+                if(com[i] < 0)
+                    break;
+                sum += com[i];
+                i++
+            }
+            document.write("합: " + sum + "<br>");
+        }
+        getsum();
+    </script>
+    
+</head>
+<body>
+   <!-- <button type="button" onclick="insertarr()">[삽입]</button><br>
+    <button type="button" onclick="selectarr()">[출력]</button><br>
+    <button type="button" onclick="addarr()">[덧셈]</button><br> -->
+</body>
+</html>

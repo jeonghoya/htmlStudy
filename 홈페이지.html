@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iframe</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            animation: boxmove 5s infinite;
+            animation-direction: alternate;
+        }
+        @keyframes boxmove {
+            0% {left: 0px; top: 0px; background-color: blue; color: white;}
+            25% {left: 300px; top: 0px; background-color: white; color: blue;}
+            50% {left: 300px; top: 300px; background-color: blue; color: white;}
+            75% {left: 0px; top: 300px; background-color: white; color: blue;}
+            100% {left: 0px; top: 0px; background-color: blue; color: white;}
+        }
+    </style>
+</head>   
+<body>
+    <div>
+        나의 취미를 알아보세요~
+    </div>
+</body>
+</html>

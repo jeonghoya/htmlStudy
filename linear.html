@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 퀴즈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2C3E50;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h3 {
+            color: #0080ff; /* 네이비 블루 */
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #0080ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        .tip, .ans {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .tip {
+            opacity: 0.2;
+            color: gray;
+            background-color: #f0f0f0;
+        }
+
+        .tip:hover {
+            opacity: 1.0;
+        }
+
+        .ans {
+            opacity: 0.0;
+            color: blue;
+            background-color: #f0f0f0;
+        }
+
+        .ans:hover {
+            opacity: 1.0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>나의 MBTI는?</h3>
+        <form>
+            <input type="radio" name="mbti" value="1">ISTP<br>
+            <input type="radio" name="mbti" value="2">ISTJ<br>
+            <input type="radio" name="mbti" value="3">ENFP<br>
+            <input type="radio" name="mbti" value="4">ESFJ
+            <p></p>
+            <input type="submit" value="제출">
+        </form>
+        [힌트] <div class="tip">나는 내향적이고 계획적입니다.</div>
+        <p></p>
+        [정답] <div class="ans">정답은 ISTJ</div>
+    </div>
+</body>
+</html>
